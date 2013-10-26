@@ -40,9 +40,10 @@ int pointerTest(){
 int arrayTest()
 {
     int i;
-    ptr = &my_array[0];/* point our pointer to the first element of the array */
+    //ptr = &my_array[0];/* point our pointer to the first element of the array */
+    ptr = my_array;
     printf("\n\n");
-    for (i = 0; i < 100; i++)
+    for (i = 0; i < 6; i++)
     {
         printf("my_array[%d] = %d |",i,my_array[i]);
         

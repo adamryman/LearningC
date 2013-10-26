@@ -8,19 +8,6 @@
 
 #include <stdio.h>
 
-//Pointer Test and Array Test vars
-int j, k;
-int *ptr;
-int my_array[] = {1,23,17,4,-5,100};
-
-//String Test vars
-char strA[80] = "A string to be used for demonstration purposes";
-char strB[80] = "12345678901234567890123456789012345678901234567890";
-
-//String Test vars
-char strC[80] = "A string to be used for demonstration purposes";
-char strD[80] = "12345678901234567890123456789012345678901234567890";
-
 //Method stubs
 int array_test();
 int pointer_test();
@@ -43,6 +30,9 @@ int main(int argc, const char * argv[])
 int pointer_test(){
     printf("Pointer Test\n");
     
+    int j, k;
+    int *ptr;
+    
     j = 1;
     k = 2;
     ptr = &k;
@@ -59,6 +49,9 @@ int pointer_test(){
 int array_test()
 {
     printf("Array Test\n");
+    
+    int *ptr;
+    int my_array[] = {1,23,17,4,-5,100};
     
     int i;
     //ptr = &my_array[0];/* point our pointer to the first element of the array */
@@ -81,6 +74,9 @@ int array_test()
 int string_test()
 {
     printf("String Test\n");
+    
+    char strA[80] = "A string to be used for demonstration purposes";
+    char strB[80] = "12345678901234567890123456789012345678901234567890";
     
     char *pA; /* a pointer to type character */
     char *pB; /* another pointer to type character */
@@ -123,8 +119,11 @@ char *my_strcpy(char *destination, const char *source) {
     return destination;
 }
 
-int my_strcpy_test(){
+int my_strcpy_test() {
     printf("String Copy Test\n");
+    
+    char strC[80] = "A string to be used for demonstration purposes";
+    char strD[80] = "12345678901234567890123456789012345678901234567890";
     
     *my_strcpy(strD, strC);
     puts(strD);
@@ -133,3 +132,6 @@ int my_strcpy_test(){
     return 0;
 }
 
+int pointer_increment_test() {
+    
+}

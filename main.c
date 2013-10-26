@@ -8,13 +8,16 @@
 
 #include <stdio.h>
 
+//Pointer Test and Array Test vars
 int j, k;
 int *ptr;
 int my_array[] = {1,23,17,4,-5,100};
 
+//String Test vars
 char strA[80] = "A string to be used for demonstration purposes";
 char strB[80];
 
+//Method stubs
 int arrayTest();
 int pointerTest();
 int stringTest();
@@ -78,7 +81,13 @@ int stringTest()
     putchar('\n'); /* move down one line on the screen */
     while(*pA != '\0') /* line A (see text) */
     {
-        *pB++ = *pA++; /* line B (see text) */
+        //*pB++ = *pA++; /* line B (see text) */
+        
+        //Or | I should learn how the order is parsed
+        
+        *pB = *pA;
+        pB++;
+        pA++;
     }
     *pB = '\0'; /* line C (see text) */
     puts(strB); /* show strB on screen */

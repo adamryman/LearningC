@@ -17,6 +17,10 @@ int my_array[] = {1,23,17,4,-5,100};
 char strA[80] = "A string to be used for demonstration purposes";
 char strB[80] = "12345678901234567890123456789012345678901234567890";
 
+//String Test vars
+char strC[80] = "A string to be used for demonstration purposes";
+char strD[80] = "12345678901234567890123456789012345678901234567890";
+
 //Method stubs
 int array_test();
 int pointer_test();
@@ -29,12 +33,10 @@ int main(int argc, const char * argv[])
     printf("Hello, World!\n");
     
     pointer_test();
-    putchar('\n');
     array_test();
-    putchar('\n');
     string_test();
-    putchar('\n');
     my_strcpy_test();
+    
     return 0;
 }
 
@@ -49,6 +51,8 @@ int pointer_test(){
     printf("k has the value %d and is stored at %p\n", k, (void *)&k);
     printf("ptr has the value %p and is stored at %p\n", ptr, (void *)&ptr);
     printf("The value of the integer pointed to by ptr is %d\n", *ptr);
+    
+    printf("\n");
     return 0;
 }
 
@@ -69,6 +73,8 @@ int array_test()
         //The one below adds before the lookup and so it is always one ahead
         //printf("ptr + %d = %d\n",i, *(++ptr));
     }
+    
+    printf("\n");
     return 0;
 }
 
@@ -95,6 +101,8 @@ int string_test()
     }
     *pB = '\0'; /* line C (see text) */
     puts(strB); /* show strB on screen */
+    
+    printf("\n");
     return 0;
 }
 
@@ -116,8 +124,12 @@ char *my_strcpy(char *destination, const char *source) {
 }
 
 int my_strcpy_test(){
-    *my_strcpy(strA, strB);
-    puts(strB);
+    printf("String Copy Test\n");
     
+    *my_strcpy(strD, strC);
+    puts(strD);
+    
+    printf("\n");
     return 0;
 }
+

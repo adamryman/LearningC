@@ -12,22 +12,32 @@ int j, k;
 int *ptr;
 int my_array[] = {1,23,17,4,-5,100};
 
+char strA[80] = "A string to be used for demonstration purposes";
+char strB[80];
+
 int arrayTest();
 int pointerTest();
+int stringTest();
 
 int main(int argc, const char * argv[])
 {
     printf("Hello, World!\n");
+    
     pointerTest();
+    putchar('\n');
     arrayTest();
+    putchar('\n');
+    stringTest();
     return 0;
 }
 
 int pointerTest(){
+    printf("Pointer Test\n");
+    
     j = 1;
     k = 2;
     ptr = &k;
-    printf("\n");
+    
     printf("j has the value %d and is stored at %p\n", j, (void *)&j);
     printf("k has the value %d and is stored at %p\n", k, (void *)&k);
     printf("ptr has the value %p and is stored at %p\n", ptr, (void *)&ptr);
@@ -35,14 +45,13 @@ int pointerTest(){
     return 0;
 }
 
-#include <stdio.h>
-
 int arrayTest()
 {
+    printf("Array Test\n");
+    
     int i;
     //ptr = &my_array[0];/* point our pointer to the first element of the array */
     ptr = my_array;
-    printf("\n\n");
     for (i = 0; i < 6; i++)
     {
         printf("my_array[%d] = %d |",i,my_array[i]);
@@ -53,5 +62,25 @@ int arrayTest()
         //The one below adds before the lookup and so it is always one ahead
         //printf("ptr + %d = %d\n",i, *(++ptr));
     }
+    return 0;
+}
+
+int stringTest()
+{
+    printf("String Test\n");
+    
+    char *pA; /* a pointer to type character */
+    char *pB; /* another pointer to type character */
+    puts(strA); /* show string A */
+    pA = strA; /* point pA at string A */
+    puts(pA); /* show what pA is pointing to */
+    pB = strB; /* point pB at string B */
+    putchar('\n'); /* move down one line on the screen */
+    while(*pA != '\0') /* line A (see text) */
+    {
+        *pB++ = *pA++; /* line B (see text) */
+    }
+    *pB = '\0'; /* line C (see text) */
+    puts(strB); /* show strB on screen */
     return 0;
 }

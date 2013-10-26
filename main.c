@@ -98,7 +98,8 @@ int string_test()
     return 0;
 }
 
-char *my_strcpy(char *destination, char *source) {
+char *my_strcpy(char *destination, const char *source) {
+    //*source = 'X'; This will fail because of the const on *source
     char *p = destination;
     while (*source != '\0')
     {

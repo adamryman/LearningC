@@ -18,23 +18,27 @@ char strA[80] = "A string to be used for demonstration purposes";
 char strB[80] = "12345678901234567890123456789012345678901234567890";
 
 //Method stubs
-int arrayTest();
-int pointerTest();
-int stringTest();
+int array_test();
+int pointer_test();
+int string_test();
+char *my_strcpy();
+int my_strcpy_test();
 
 int main(int argc, const char * argv[])
 {
     printf("Hello, World!\n");
     
-    pointerTest();
+    pointer_test();
     putchar('\n');
-    arrayTest();
+    array_test();
     putchar('\n');
-    stringTest();
+    string_test();
+    putchar('\n');
+    my_strcpy_test();
     return 0;
 }
 
-int pointerTest(){
+int pointer_test(){
     printf("Pointer Test\n");
     
     j = 1;
@@ -48,7 +52,7 @@ int pointerTest(){
     return 0;
 }
 
-int arrayTest()
+int array_test()
 {
     printf("Array Test\n");
     
@@ -68,7 +72,7 @@ int arrayTest()
     return 0;
 }
 
-int stringTest()
+int string_test()
 {
     printf("String Test\n");
     
@@ -91,5 +95,28 @@ int stringTest()
     }
     *pB = '\0'; /* line C (see text) */
     puts(strB); /* show strB on screen */
+    return 0;
+}
+
+char *my_strcpy(char *destination, char *source) {
+    char *p = destination;
+    while (*source != '\0')
+    {
+        *p++ = *source++;
+        
+        //Or
+        
+        //*p = *source
+        //p++
+        //source++;
+    }
+    *p = '\0';
+    return destination;
+}
+
+int my_strcpy_test(){
+    *my_strcpy(strA, strB);
+    puts(strB);
+    
     return 0;
 }

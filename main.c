@@ -23,6 +23,7 @@ int main(int argc, const char * argv[])
     array_test();
     string_test();
     my_strcpy_test();
+    pointer_increment_test();
     
     return 0;
 }
@@ -133,5 +134,30 @@ int my_strcpy_test() {
 }
 
 int pointer_increment_test() {
+    printf("Pointer Increment Test\n");
     
+    char strE[80] = "BlueBlueBlue";
+    char *i = strE;
+    char *j = strE;
+    char *k = strE;
+    char *m = strE;
+    
+    printf("Orginal | %s\n", strE);
+
+    *i++;
+    printf("*p++ | %s\n", i);
+    
+    j++;
+    printf("p++ | %s\n", j);
+    
+    (*k)++;
+    printf("(*p)++ | %s\n", k);
+    
+    (m)++;
+    printf("(m)++ | %s\n", m);
+
+    
+    
+    printf("\n");
+    return 0;
 }

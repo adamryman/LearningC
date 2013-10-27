@@ -15,10 +15,12 @@ void string_test();
 void pointer_increment_test();
 int my_strcpy_test();
 void int_copy_test();
+void my_strlen_test();
 
-char strlen();
-char strcat();
-char strchr();
+
+int my_strlen();
+char my_strcat();
+char my_strchr();
 
 int main(int argc, const char * argv[])
 {
@@ -30,6 +32,7 @@ int main(int argc, const char * argv[])
     my_strcpy_test();
     pointer_increment_test();
     int_copy_test();
+    my_strlen_test();
     
     return 0;
 }
@@ -192,4 +195,23 @@ char *my_strcpy_array(char dest[], char source[]) {
         i++; }
     dest[i] = '\0';
     return dest;
+}
+
+int my_strlen(const char *source){
+    int i = 0;
+    while(*source != '\0'){
+        *source++;
+        i++;
+    }
+    return i;
+}
+
+void my_strlen_test(){
+    printf("String Length Test\n");
+    
+    char strA[80] = "A string to be used for demonstration purposes";
+    int length = my_strlen(strA);
+    printf("\"%s\" is %d characters long", strA, length);
+    
+    printf("\n");
 }

@@ -13,8 +13,8 @@ void array_test();
 void pointer_test();
 void string_test();
 void pointer_increment_test();
-char *my_strcpy();
 int my_strcpy_test();
+void int_copy_test();
 
 int main(int argc, const char * argv[])
 {
@@ -25,6 +25,7 @@ int main(int argc, const char * argv[])
     string_test();
     my_strcpy_test();
     pointer_increment_test();
+    int_copy_test();
     
     return 0;
 }
@@ -162,4 +163,19 @@ void int_copy(int *destination, int *source, int nbr){
     for (int i = 0; i < nbr; i++){
         *destination++ = *source++;
     }
+}
+
+void int_copy_test(){
+    printf("Int Copy Test\n");
+    
+    int int_arrayA[6] = {1,23,17,4,-5,100};
+    int int_arrayB[6];
+    int_copy(int_arrayB, int_arrayA, 6);
+    
+    for (int i = 0; i < 6; i++)
+    {
+        printf("my_array[%d] = %d \n",i,int_arrayB[i]);
+    }
+    
+    printf("\n");
 }

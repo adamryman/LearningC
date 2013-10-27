@@ -16,6 +16,10 @@ void pointer_increment_test();
 int my_strcpy_test();
 void int_copy_test();
 
+char strlen();
+char strcat();
+char strchr();
+
 int main(int argc, const char * argv[])
 {
     printf("Hello, World!\n");
@@ -178,4 +182,14 @@ void int_copy_test(){
     }
     
     printf("\n");
+}
+
+char *my_strcpy_array(char dest[], char source[]) {
+    int i = 0;
+    while (source[i] != '\0')
+    {
+        dest[i] = source[i];
+        i++; }
+    dest[i] = '\0';
+    return dest;
 }

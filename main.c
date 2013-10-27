@@ -9,9 +9,10 @@
 #include <stdio.h>
 
 //Method stubs
-int array_test();
-int pointer_test();
-int string_test();
+void array_test();
+void pointer_test();
+void string_test();
+void pointer_increment_test();
 char *my_strcpy();
 int my_strcpy_test();
 
@@ -28,7 +29,7 @@ int main(int argc, const char * argv[])
     return 0;
 }
 
-int pointer_test(){
+void pointer_test(){
     printf("Pointer Test\n");
     
     int j, k;
@@ -44,10 +45,9 @@ int pointer_test(){
     printf("The value of the integer pointed to by ptr is %d\n", *ptr);
     
     printf("\n");
-    return 0;
 }
 
-int array_test()
+void array_test()
 {
     printf("Array Test\n");
     
@@ -69,10 +69,9 @@ int array_test()
     }
     
     printf("\n");
-    return 0;
 }
 
-int string_test()
+void string_test()
 {
     printf("String Test\n");
     
@@ -100,7 +99,6 @@ int string_test()
     puts(strB); /* show strB on screen */
     
     printf("\n");
-    return 0;
 }
 
 char *my_strcpy(char *destination, const char *source) {
@@ -130,10 +128,9 @@ int my_strcpy_test() {
     puts(strD);
     
     printf("\n");
-    return 0;
 }
 
-int pointer_increment_test() {
+void pointer_increment_test() {
     printf("Pointer Increment Test\n");
     
     char strE[80] = "BlueBlueBlue";
@@ -159,5 +156,10 @@ int pointer_increment_test() {
     
     
     printf("\n");
-    return 0;
+}
+
+void int_copy(int *destination, int *source, int nbr){
+    for (int i = 0; i < nbr; i++){
+        *destination++ = *source++;
+    }
 }

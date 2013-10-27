@@ -18,6 +18,7 @@ void int_copy_test();
 void my_strlen_test();
 void my_strcat_test();
 void my_strchr_test();
+void my_strchr_test();
 
 int main(int argc, const char * argv[])
 {
@@ -31,6 +32,7 @@ int main(int argc, const char * argv[])
     int_copy_test();
     my_strlen_test();
     my_strcat_test();
+    my_strchr_test();
     
     return 0;
 }
@@ -238,6 +240,19 @@ void my_strcat_test(){
     printf("\n");
 }
 char* my_strchr(char* str, int character){
-    
-    
+    while(*str != '\0'){
+        if(*str == (char)character){
+            return str;
+        }
+        str++;
+    }
+    if((char)character == '\0'){
+        return str;
+    }
+    return NULL;
+}
+
+void my_strchr_test(){
+    char strA[80] = "ABCD";
+    puts(my_strchr(strA,'C'));
 }

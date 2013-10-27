@@ -16,11 +16,8 @@ void pointer_increment_test();
 int my_strcpy_test();
 void int_copy_test();
 void my_strlen_test();
-
-
-int my_strlen();
-char my_strcat();
-char my_strchr();
+void my_strcat_test();
+void my_strchr_test();
 
 int main(int argc, const char * argv[])
 {
@@ -33,6 +30,7 @@ int main(int argc, const char * argv[])
     pointer_increment_test();
     int_copy_test();
     my_strlen_test();
+    my_strcat_test();
     
     return 0;
 }
@@ -196,7 +194,7 @@ char *my_strcpy_array(char dest[], char source[]) {
     dest[i] = '\0';
     return dest;
 }
-
+ 
 int my_strlen(const char *source){
     int i = 0;
     while(*source != '\0'){
@@ -214,4 +212,32 @@ void my_strlen_test(){
     printf("\"%s\" is %d characters long", strA, length);
     
     printf("\n");
+}
+
+char* my_strcat(char *destination, const char *source) {
+    char* str = destination;
+    while(*str != '\0'){
+        *str++;
+    }
+    while(*source != '\0'){
+        *str++ = *source++;
+    }
+    *str = '\0';
+    return destination;
+}
+
+void my_strcat_test(){
+    printf("String Length Test\n");
+    
+    char strA[80] = "ABCD";
+    char strB[80] = "EFGH";
+    char* str;
+    str = my_strcat(strA, strB);
+    printf(str);
+    
+    printf("\n");
+}
+char* my_strchr(char* str, int character){
+    
+    
 }

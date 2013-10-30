@@ -28,6 +28,7 @@ void my_strcat_test();
 void my_strchr_test();
 void my_strchr_test();
 void struct_test();
+void multi_arrays_test();
 
 int main(int argc, const char * argv[])
 {
@@ -43,6 +44,7 @@ int main(int argc, const char * argv[])
     my_strcat_test();
     my_strchr_test();
     struct_test();
+    multi_arrays_test();
     
     return 0;
 }
@@ -300,3 +302,27 @@ void struct_test(){
     printf("\n");
 }
 
+void multi_arrays_test(){
+    printf("Multi-Dimensional Array Test\n");
+    #define ROWS 5
+    #define COLS 10
+    int multi[ROWS][COLS];
+    
+    int row, col;
+    for (row = 0; row < ROWS; row++)
+    {
+        for (col = 0; col < COLS; col++)
+        {
+            multi[row][col] = row*col;
+        }
+    }
+    for (row = 0; row < ROWS; row++)
+    {
+        for (col = 0; col < COLS; col++)
+        {
+            printf("\n%d ",multi[row][col]);
+            //access via pointer addition
+            printf("%d ",*(*(multi + row) + col)); }
+    }
+    printf("\n");
+}

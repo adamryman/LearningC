@@ -8,6 +8,14 @@
 
 #include <stdio.h>
 
+//Structure for tests
+struct tag {
+    char lname[20];
+    char fname[20];
+    int age;
+    float rate;
+};
+
 //Method stubs
 void array_test();
 void pointer_test();
@@ -19,6 +27,7 @@ void my_strlen_test();
 void my_strcat_test();
 void my_strchr_test();
 void my_strchr_test();
+void struct_test();
 
 int main(int argc, const char * argv[])
 {
@@ -33,6 +42,7 @@ int main(int argc, const char * argv[])
     my_strlen_test();
     my_strcat_test();
     my_strchr_test();
+    struct_test();
     
     return 0;
 }
@@ -253,6 +263,40 @@ char* my_strchr(char* str, int character){
 }
 
 void my_strchr_test(){
+    printf("String Character Finder Test\n");
     char strA[80] = "ABCD";
     puts(my_strchr(strA,'C'));
+    
+    printf("\n");
 }
+
+void show_name_and_age(struct tag *p)
+{
+    struct tag test = *p;
+    //the "->" syntax is a shortcut to derefencing a pointer to a structure
+    //and calling that structures part.
+    printf("\n%s ", p->fname); /* p points to a structure */
+    printf("%s ", (*p).lname);
+    printf("%d\n", test.age);
+}
+
+void struct_test(){
+    printf("Structure Test\n");
+    
+    struct tag my_struct;
+    
+    strcpy(my_struct.lname,"Jensen");
+    strcpy(my_struct.fname,"Ted");
+    printf("%s ",my_struct.fname);
+    printf("%s",my_struct.lname);
+    printf("\n");
+    
+    //create a pointer to the structure
+    struct tag *st_ptr;
+    st_ptr = &my_struct;
+    my_struct.age = 64;
+    show_name_and_age(st_ptr);
+    
+    printf("\n");
+}
+

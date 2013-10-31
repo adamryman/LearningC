@@ -29,6 +29,10 @@ void my_strchr_test();
 void my_strchr_test();
 void struct_test();
 void multi_arrays_test();
+void mergesort();
+int* mergesortrecursive();
+void printintarray();
+void mergesorttest();
 
 int main(int argc, const char * argv[])
 {
@@ -39,12 +43,15 @@ int main(int argc, const char * argv[])
     string_test();
     my_strcpy_test();
     pointer_increment_test();
-    int_copy_test();
+    //int_copy_test();
     my_strlen_test();
     my_strcat_test();
     my_strchr_test();
     struct_test();
     multi_arrays_test();
+    mergesorttest();
+
+
     
     return 0;
 }
@@ -324,5 +331,79 @@ void multi_arrays_test(){
             //access via pointer addition
             printf("%d ",*(*(multi + row) + col)); }
     }
+    printf("\n\n");
+}
+
+int* mergesortrecursive(int* array, int n){
+    printf("Passed: ");
+    printintarray(array, n);
+    if(n <= 1){
+        return array;
+    }else{
+        int left[n/2];
+        int right[n-n/2];
+        
+        int_copy(left, mergesortrecursive(&(array[0]), n/2), n/2);
+        int_copy(right, mergesortrecursive(&(array[n/2]), n - n/2), n- n/2);
+        int counter = 0;
+        int leftcounter = 0;
+        int rightcounter = 0;
+        
+        while(leftcounter < n/2 && rightcounter < n - n/2){
+            printf("Left = %d | Right = %d\n", left[leftcounter], right[rightcounter]);
+            if(left[leftcounter] < right[rightcounter]){
+                printf("Left smaller %d\n", left[leftcounter]);
+                array[counter] = left[leftcounter];
+                leftcounter++;
+            }else{
+                printf("Right smaller %d\n", right[rightcounter]);
+                array[counter] = right[rightcounter];
+                rightcounter++;
+            }
+            counter++;
+        }
+        while(counter < n){
+            if(leftcounter < n/2){
+                array[counter] = left[leftcounter];
+                leftcounter++;
+            }else{
+                array[counter] = right[rightcounter];
+                rightcounter++;
+            }
+            counter++;
+        }
+        
+        printf("Sorted: ");
+        printintarray(array, n);
+        return array;
+    }
+}
+void mergesort(int array[], int n){
+    
+    array = mergesortrecursive(array, n);
+}
+
+void printintarray(int array[], int n){
+    for(int i = 0; i < n; i++){
+        printf("%d ",array[i]);
+    }
+    printf("\n");
+}
+
+void mergesorttest(){
+    printf("Merge Sort Test\n\n");
+    int test[9] = {3,4,2,1,99,55,245,66,27};
+    int again[9];
+    int_copy(again, test, 9);
+    
+    printintarray(test,9);
+    mergesort(test,9);
+    
+    printf("\n");
+    printf("Before: ");
+    printintarray(again, 9);
+    printf("Sorted: ");
+    printintarray(test,9);
+    
     printf("\n");
 }

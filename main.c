@@ -337,18 +337,24 @@ void multi_arrays_test(){
 int* mergesortrecursive(int* array, int n){
     printf("Passed: ");
     printintarray(array, n);
+    //if size 1 or less return
     if(n <= 1){
         return array;
     }else{
+        //create two arrays to hold data
         int left[n/2];
         int right[n-n/2];
         
+        //fill with data, left and right side
         int_copy(left, mergesortrecursive(&(array[0]), n/2), n/2);
         int_copy(right, mergesortrecursive(&(array[n/2]), n - n/2), n- n/2);
+        
+        //create some couters to keep place in arrays
         int counter = 0;
         int leftcounter = 0;
         int rightcounter = 0;
         
+        //while there are more elements compare left and right side
         while(leftcounter < n/2 && rightcounter < n - n/2){
             printf("Left = %d | Right = %d\n", left[leftcounter], right[rightcounter]);
             if(left[leftcounter] < right[rightcounter]){
@@ -362,6 +368,8 @@ int* mergesortrecursive(int* array, int n){
             }
             counter++;
         }
+        
+        //if there are elements left, put them in the array
         while(counter < n){
             if(leftcounter < n/2){
                 array[counter] = left[leftcounter];
@@ -372,7 +380,7 @@ int* mergesortrecursive(int* array, int n){
             }
             counter++;
         }
-        
+        //return the array
         printf("Sorted: ");
         printintarray(array, n);
         return array;
@@ -380,7 +388,7 @@ int* mergesortrecursive(int* array, int n){
 }
 void mergesort(int array[], int n){
     
-    array = mergesortrecursive(array, n);
+    mergesortrecursive(array, n);
 }
 
 void printintarray(int array[], int n){

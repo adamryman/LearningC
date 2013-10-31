@@ -43,7 +43,7 @@ int main(int argc, const char * argv[])
     string_test();
     my_strcpy_test();
     pointer_increment_test();
-    //int_copy_test();
+    int_copy_test();
     my_strlen_test();
     my_strcat_test();
     my_strchr_test();
